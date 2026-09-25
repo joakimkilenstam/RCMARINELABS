@@ -3,144 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
 <title>RC Marine Labs | Into The Sea</title>
- 
+<meta name="description" content="RC Marine Labs develops, tests and refines marine scale technology built for demanding conditions at sea.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
- 
 * {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
- 
+
 html, body {
-height: 100%;
+  height: 100%;
 }
- 
+
 body {
-font-family: Arial, Helvetica, sans-serif;
-background: #000;
+  font-family: "Barlow", "Helvetica Neue", Arial, sans-serif;
+  background: #05070b;
+  color: #f2f3f4;
+  -webkit-font-smoothing: antialiased;
 }
- 
+
+/* Bakgrundsbild + mjuk mörk ton till vänster så texten syns */
 .hero {
-position: relative;
-height: 100vh;
-width: 100%;
- 
-background-image: url("hero.jpg");
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  background-color: #05070b;
+  background-image:
+    linear-gradient(90deg, rgba(3,5,9,0.45) 0%, rgba(3,5,9,0.2) 40%, rgba(3,5,9,0) 65%),
+    url("hero-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
- 
-.overlay {
-width: 100%;
-height: 100%;
- 
-background: linear-gradient(
-rgba(0,0,0,0.45),
-rgba(0,0,0,0.75)
-);
- 
-display: flex;
-align-items: center;
-}
- 
+
 .content {
-max-width: 900px;
-margin-left: 8vw;
-padding-right: 30px;
-color: white;
+  padding: 5vh 30px 10vh clamp(24px, 3.5vw, 80px);
 }
- 
+
 .logo {
-font-size: 42px;
-font-weight: 300;
-letter-spacing: 14px;
-text-transform: uppercase;
-margin-bottom: 40px;
+  font-size: clamp(14px, 1.4vw, 26px);
+  font-weight: 600;
+  letter-spacing: 0.88em;
+  color: #a9b8c4;
+  margin-bottom: clamp(22px, 2.15vw, 40px);
 }
- 
+
 h1 {
-font-size: clamp(5rem, 10vw, 9rem);
-line-height: 0.9;
-margin-bottom: 40px;
-text-transform: uppercase;
+  font-size: clamp(3rem, 8vw, 10rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  margin-left: -0.04em;
+  color: #f4f4f2;
 }
- 
-.lead {
-max-width: 800px;
-font-size: clamp(1.4rem, 2vw, 2rem);
-line-height: 1.5;
-margin-bottom: 25px;
+
+.divider {
+  width: clamp(64px, 6.3vw, 120px);
+  height: 2px;
+  border: 0;
+  background: rgba(255,255,255,0.7);
+  margin: clamp(24px, 2.6vw, 48px) 0 clamp(26px, 2.7vw, 50px);
 }
- 
+
+.lead,
 .text {
-max-width: 700px;
-font-size: 1.2rem;
-line-height: 1.8;
-color: rgba(255,255,255,0.9);
+  max-width: 24em;
+  font-size: clamp(1rem, 1.51vw, 1.7rem);
+  font-weight: 400;
+  line-height: 1.48;
+  color: rgba(238,241,244,0.9);
 }
- 
+
+.lead {
+  margin-bottom: 1.48em;
+}
+
+/* Mobil: bilden flyttas så båten syns, texten läggs upptill */
 @media (max-width: 768px) {
- 
-.content {
-margin-left: 5vw;
-margin-right: 5vw;
+  .hero {
+    align-items: flex-start;
+    background-image:
+      linear-gradient(180deg, rgba(3,5,9,0.8) 0%, rgba(3,5,9,0.55) 45%, rgba(3,5,9,0.1) 75%),
+      url("hero-bg.jpg");
+    background-position: 62% center;
+  }
+
+  .content {
+    padding: 12vh 24px 40px;
+  }
+
+  .logo {
+    letter-spacing: 0.6em;
+  }
+
+  .lead,
+  .text {
+    font-size: 1.05rem;
+  }
 }
- 
-.logo {
-font-size: 20px;
-letter-spacing: 6px;
-}
- 
-h1 {
-font-size: 4rem;
-}
- 
-.lead {
-font-size: 1.1rem;
-}
- 
-.text {
-font-size: 1rem;
-}
-}
- 
 </style>
- 
 </head>
- 
+
 <body>
- 
+
 <section class="hero">
- 
-<div class="overlay">
- 
-<div class="content">
- 
-<div class="logo">
-RC MARINE LABS
-</div>
- 
-<h1>
-INTO THE SEA
-</h1>
- 
-<div class="lead">
-Innovation, exploration and marine scale technology designed for demanding conditions at sea.
-</div>
- 
-<div class="text">
-We develop, test and refine solutions built to perform when conditions become unpredictable.
-</div>
- 
-</div>
- 
-</div>
- 
+  <div class="content">
+    <p class="logo">RC MARINE LABS</p>
+
+    <h1>INTO THE SEA</h1>
+
+    <hr class="divider">
+
+    <p class="lead">Innovation, exploration and marine scale technology designed for demanding conditions at sea.</p>
+
+    <p class="text">We develop, test and refine solutions built to perform when conditions become unpredictable.</p>
+  </div>
 </section>
- 
+
 </body>
 </html>
