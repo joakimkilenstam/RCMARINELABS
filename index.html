@@ -8,11 +8,17 @@
 <title>RC Marine Labs | Into The Sea</title>
  
 <style>
-body{
+ 
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
+}
+ 
+body{
+font-family:Arial, Helvetica, sans-serif;
 background:#020811;
-color:white;
-font-family:Arial,sans-serif;
+color:#ffffff;
 }
  
 .hero{
@@ -20,13 +26,14 @@ min-height:100vh;
  
 background:
 linear-gradient(
-rgba(0,0,0,0.55),
+rgba(0,0,0,0.45),
 rgba(0,0,0,0.75)
 ),
-url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80");
+url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2200&q=80");
  
 background-size:cover;
 background-position:center;
+background-attachment:fixed;
  
 display:flex;
 align-items:center;
@@ -39,32 +46,34 @@ margin:auto;
 }
  
 .logo{
-color:#9db7c7;
-letter-spacing:10px;
-font-size:18px;
-margin-bottom:25px;
+font-size:16px;
+letter-spacing:12px;
+color:#b5c8d6;
+margin-bottom:30px;
+text-transform:uppercase;
 }
  
 h1{
-font-size:120px;
-margin:0 0 30px 0;
-font-weight:700;
+font-size:clamp(5rem,12vw,10rem);
 line-height:0.95;
+margin-bottom:40px;
+font-weight:700;
 }
  
 .lead{
+font-size:clamp(1.4rem,2vw,2.2rem);
 max-width:950px;
-font-size:34px;
-line-height:1.3;
-margin-bottom:30px;
+line-height:1.4;
+margin-bottom:25px;
 }
  
 .text{
+font-size:clamp(1.1rem,1.5vw,1.5rem);
 max-width:850px;
-font-size:24px;
-color:#d8e2ea;
-line-height:1.5;
+line-height:1.7;
+color:#d6dee5;
 }
+ 
 </style>
  
 </head>
@@ -72,26 +81,29 @@ line-height:1.5;
 <body>
  
 <section class="hero">
+ 
 <div class="container">
  
 <div class="logo">
-RC MARINE LABS
+⚓ RC MARINE LABS
 </div>
  
-<h1>INTO THE SEA</h1>
+<h1>
+INTO THE SEA
+</h1>
  
 <div class="lead">
 Innovation, exploration and marine scale technology designed for demanding conditions at sea.
 </div>
- 
-<br>
  
 <div class="text">
 We develop, test and refine solutions built to perform when conditions become unpredictable.
 </div>
  
 </div>
+ 
 </section>
  
 </body>
+ 
 </html>
