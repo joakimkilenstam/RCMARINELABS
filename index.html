@@ -28,36 +28,57 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Bakgrundsbild + mjuk mörk ton till vänster så texten syns */
 .hero {
   position: relative;
+  overflow: hidden;
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   background-color: #05070b;
-  background-image:
-    linear-gradient(90deg, rgba(3,5,9,0.45) 0%, rgba(3,5,9,0.2) 40%, rgba(3,5,9,0) 65%),
-    url("hero-bg.jpg?v=2");
-  background-size: cover;
-  background-position: 50% 22%;
-  background-repeat: no-repeat;
+}
+
+/* Hela bilden visas (månen och hela fören), förankrad till höger.
+   Vänsterkanten tonar mjukt ut i den svarta bakgrunden. */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  aspect-ratio: 1572 / 1001;
+  background: url("hero-bg.jpg?v=2") center / cover no-repeat;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 24%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 24%);
+}
+
+/* Smalare/högre skärmar: bilden fyller hela ytan, fören hålls kvar i bild */
+@media (max-aspect-ratio: 1572/1001) {
+  .hero-bg {
+    left: 0;
+    width: 100%;
+    aspect-ratio: auto;
+    background-position: 28% center;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
 }
 
 .content {
-  padding: 5vh 30px 10vh clamp(24px, 3.5vw, 80px);
+  position: relative;
+  z-index: 1;
+  padding: clamp(48px, 11vh, 130px) 30px 6vh clamp(20px, 2.6vw, 64px);
 }
 
 .logo {
-  font-size: clamp(15px, 1.47vw, 27px);
+  font-size: clamp(16px, 1.7vw, 32px);
   font-weight: 600;
   letter-spacing: 0.88em;
   color: #a9b8c4;
-  margin-bottom: clamp(22px, 2.15vw, 40px);
+  margin-bottom: clamp(20px, 1.9vw, 36px);
 }
 
 h1 {
-  font-size: clamp(2.7rem, 7.2vw, 9rem);
+  font-size: clamp(2.5rem, 6.6vw, 8rem);
   font-weight: 600;
   letter-spacing: 0.05em;
   line-height: 1;
@@ -70,7 +91,7 @@ h1 {
   height: 2px;
   border: 0;
   background: rgba(255,255,255,0.7);
-  margin: clamp(24px, 2.6vw, 48px) 0 clamp(26px, 2.7vw, 50px);
+  margin: clamp(22px, 2.4vw, 44px) 0 clamp(24px, 2.5vw, 46px);
 }
 
 .lead,
@@ -86,14 +107,18 @@ h1 {
   margin-bottom: 1.48em;
 }
 
-/* Mobil: bilden flyttas så båten syns, texten läggs upptill */
+/* Mobil: bilden fyller skärmen och båten syns under texten */
 @media (max-width: 768px) {
-  .hero {
-    align-items: flex-start;
+  .hero-bg {
+    left: 0;
+    width: 100%;
+    aspect-ratio: auto;
     background-image:
       linear-gradient(180deg, rgba(3,5,9,0.8) 0%, rgba(3,5,9,0.55) 45%, rgba(3,5,9,0.1) 75%),
       url("hero-bg.jpg?v=2");
     background-position: 62% center;
+    -webkit-mask-image: none;
+    mask-image: none;
   }
 
   .content {
@@ -115,6 +140,8 @@ h1 {
 <body>
 
 <section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+
   <div class="content">
     <p class="logo">RC MARINE LABS</p>
 
